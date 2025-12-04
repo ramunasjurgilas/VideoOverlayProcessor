@@ -32,6 +32,7 @@ public class TextOverlay: BaseOverlay {
         textLayer.string = text
         textLayer.isWrapped = true
         textLayer.font = font
+        textLayer.fontSize = font.pointSize
         textLayer.alignmentMode = layerAlignmentMode
         textLayer.frame = frame
         textLayer.opacity = 0.0
