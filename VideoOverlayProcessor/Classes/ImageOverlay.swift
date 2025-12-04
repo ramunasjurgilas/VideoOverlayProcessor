@@ -30,7 +30,7 @@ class ImageOverlay: BaseOverlay {
 #elseif canImport(AppKit)
         imageLayer.contents = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
 #endif
-        imageLayer.backgroundColor = backgroundColor.cgColor
+        imageLayer.backgroundColor = PlatformColor.blue.withAlphaComponent(0.5).cgColor // backgroundColor.cgColor
         imageLayer.frame = frame
         imageLayer.opacity = 0.0
 

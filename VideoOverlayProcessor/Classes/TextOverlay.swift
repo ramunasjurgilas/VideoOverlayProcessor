@@ -17,6 +17,7 @@ public typealias PlatformFont = UIFont
 #elseif canImport(AppKit)
 public typealias PlatformFont = NSFont
 #endif
+public let defaultFont: PlatformFont = .systemFont(ofSize: 20)
 
 public class TextOverlay: BaseOverlay {
     let text: String
@@ -26,15 +27,11 @@ public class TextOverlay: BaseOverlay {
 
     override var layer: CALayer {
         let textLayer = CATextLayer()
-        textLayer.backgroundColor = backgroundColor.cgColor
+        textLayer.backgroundColor = PlatformColor.blue.withAlphaComponent(0.5).cgColor
         textLayer.foregroundColor = textColor.cgColor
         textLayer.string = text
         textLayer.isWrapped = true
-#if canImport(UIKit)
         textLayer.font = font
-#else
-        textLayer.font = font
-#endif
         textLayer.alignmentMode = layerAlignmentMode
         textLayer.frame = frame
         textLayer.opacity = 0.0
@@ -60,20 +57,16 @@ public class TextOverlay: BaseOverlay {
         }
     }
 
-    public init(text: String,
-         frame: CGRect,
-         delay: TimeInterval,
-         duration: TimeInterval,
-         backgroundColor: PlatformColor = PlatformColor.clear,
-         textColor: PlatformColor = PlatformColor.black,
-         font: PlatformFont = {
-#if canImport(UIKit)
-    UIFont.systemFont(ofSize: 28)
-#else
-    NSFont.systemFont(ofSize: 28)
-#endif
-}(),
-         textAlignment: NSTextAlignment = NSTextAlignment.center) {
+    public init(
+        text: String,
+        frame: CGRect,
+        delay: TimeInterval,
+        duration: TimeInterval,
+        backgroundColor: PlatformColor = PlatformColor.clear,
+        textColor: PlatformColor = PlatformColor.black,
+        font: PlatformFont = defaultFont,
+        textAlignment: NSTextAlignment = NSTextAlignment.center
+    ) {
 
         self.text = text
         self.textColor = textColor
@@ -83,3 +76,4 @@ public class TextOverlay: BaseOverlay {
         super.init(frame: frame, delay: delay, duration: duration, backgroundColor: backgroundColor)
     }
 }
+
