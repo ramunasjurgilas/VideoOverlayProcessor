@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextOverlay: BaseOverlay {
+public class TextOverlay: BaseOverlay {
     let text: String
     let textColor: UIColor
     let font: UIFont
@@ -46,7 +46,7 @@ class TextOverlay: BaseOverlay {
         }
     }
     
-    init(text: String,
+    public init(text: String,
          frame: CGRect,
          delay: TimeInterval,
          duration: TimeInterval,
