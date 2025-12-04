@@ -8,10 +8,8 @@
 
 #if canImport(UIKit)
 import UIKit
-public typealias PlatformColor = UIColor
 #elseif canImport(AppKit)
 import AppKit
-public typealias PlatformColor = NSColor
 #endif
 import AVFoundation
 
@@ -19,7 +17,7 @@ public class BaseOverlay {
     let frame: CGRect
     let delay: TimeInterval
     let duration: TimeInterval
-    let backgroundColor: UIColor
+    let backgroundColor: PlatformColor
     
     var startAnimation: CAAnimation {
         let animation = CABasicAnimation(keyPath: "opacity")
@@ -61,8 +59,8 @@ public class BaseOverlay {
     init(frame: CGRect,
          delay: TimeInterval,
          duration: TimeInterval,
-         backgroundColor: UIColor = UIColor.clear) {
-        
+         backgroundColor: PlatformColor = PlatformColor.clear) {
+
         self.frame = frame
         self.delay = delay
         self.duration = duration

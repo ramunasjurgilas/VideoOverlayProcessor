@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		007777852EE2310700D7C54D /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007777842EE2310700D7C54D /* Package.swift */; };
 		08D02B422369D2890092AAF1 /* VideoOverlayProcessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D02B382369D2890092AAF1 /* VideoOverlayProcessor.framework */; };
 		08D02B472369D2890092AAF1 /* VideoOverlayProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D02B462369D2890092AAF1 /* VideoOverlayProcessorTests.swift */; };
 		08D02B492369D2890092AAF1 /* VideoOverlayProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D02B3B2369D2890092AAF1 /* VideoOverlayProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -306,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D02B572369D5C00092AAF1 /* BaseOverlay.swift in Sources */,
-				007777852EE2310700D7C54D /* Package.swift in Sources */,
 				08D02B5B2369D6000092AAF1 /* ImageOverlay.swift in Sources */,
 				08D02B592369D5EC0092AAF1 /* TextOverlay.swift in Sources */,
 				08D02B5D2369D60F0092AAF1 /* VideoOverlayProcessor.swift in Sources */,

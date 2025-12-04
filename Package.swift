@@ -4,7 +4,8 @@ import PackageDescription
 let package = Package(
     name: "VideoOverlayProcessor",
     platforms: [
-        .iOS(.v11)   // or .v10 if you really need lower
+        .iOS(.v15),   // or .v10 if you really need lower
+        .macOS(.v12)
     ],
     products: [
         .library(
