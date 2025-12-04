@@ -8,20 +8,20 @@
 
 import AVFoundation
 
-class VideoOverlayProcessor {
+public class VideoOverlayProcessor {
     let inputURL: URL
     let outputURL: URL
     
-    var outputPresetName: String = AVAssetExportPresetHighestQuality
-    
+    public var outputPresetName: String = AVAssetExportPresetHighestQuality
+
     private var overlays: [BaseOverlay] = []
     
-    var videoSize: CGSize {
+    public var videoSize: CGSize {
         let asset = AVURLAsset(url: inputURL)
         return asset.tracks(withMediaType: AVMediaType.video).first?.naturalSize ?? CGSize.zero
     }
     
-    var videoDuration: TimeInterval {
+    public var videoDuration: TimeInterval {
         let asset = AVURLAsset(url: inputURL)
         return asset.duration.seconds
     }
@@ -32,14 +32,14 @@ class VideoOverlayProcessor {
     
     // MARK: Initializers
     
-    init(inputURL: URL, outputURL: URL) {
+    public init(inputURL: URL, outputURL: URL) {
         self.inputURL = inputURL
         self.outputURL = outputURL
     }
     
     // MARK: Processing
     
-    func process(_ completionHandler: @escaping (_ exportSession: AVAssetExportSession?) -> Void) {
+    public func process(_ completionHandler: @escaping (_ exportSession: AVAssetExportSession?) -> Void) {
         let composition = AVMutableComposition()
         let asset = AVURLAsset(url: inputURL)
         
@@ -114,7 +114,7 @@ class VideoOverlayProcessor {
         }
     }
     
-    func addOverlay(_ overlay: BaseOverlay) {
+    public func addOverlay(_ overlay: BaseOverlay) {
         overlays.append(overlay)
     }
 }
