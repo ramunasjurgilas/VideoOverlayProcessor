@@ -11,48 +11,48 @@ import AVFoundation
 public class VideoOverlayProcessor {
     let inputURL: URL
     let outputURL: URL
-    
+
     public var outputPresetName: String = AVAssetExportPresetHighestQuality
 
     private var overlays: [BaseOverlay] = []
-    
+
     public var videoSize: CGSize {
         let asset = AVURLAsset(url: inputURL)
         return asset.tracks(withMediaType: AVMediaType.video).first?.naturalSize ?? CGSize.zero
     }
-    
+
     public var videoDuration: TimeInterval {
         let asset = AVURLAsset(url: inputURL)
         return asset.duration.seconds
     }
-    
+
     private var asset: AVAsset {
         return AVURLAsset(url: inputURL)
     }
-    
+
     // MARK: Initializers
-    
+
     public init(inputURL: URL, outputURL: URL) {
         self.inputURL = inputURL
         self.outputURL = outputURL
     }
-    
+
     // MARK: Processing
-    
+
     public func process(_ completionHandler: @escaping (_ exportSession: AVAssetExportSession?) -> Void) {
         let composition = AVMutableComposition()
         let asset = AVURLAsset(url: inputURL)
-        
+
         guard let videoTrack = asset.tracks(withMediaType: AVMediaType.video).first else {
             completionHandler(nil)
             return
         }
-        
+
         guard let compositionVideoTrack: AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: CMPersistentTrackID(kCMPersistentTrackID_Invalid)) else {
             completionHandler(nil)
             return
         }
-        
+
         let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: asset.duration)
 
         do {
@@ -62,7 +62,7 @@ public class VideoOverlayProcessor {
             completionHandler(nil)
             return
         }
-        
+
         if let audioTrack = asset.tracks(withMediaType: AVMediaType.audio).first {
             let compositionAudioTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: CMPersistentTrackID(kCMPersistentTrackID_Invalid))
 
@@ -79,7 +79,7 @@ public class VideoOverlayProcessor {
         overlayLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
         videoLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
         overlayLayer.addSublayer(videoLayer)
-        
+
         overlays.forEach { (overlay) in
             let layer = overlay.layer
             layer.add(overlay.startAnimation, forKey: "startAnimation")
@@ -113,7 +113,16 @@ public class VideoOverlayProcessor {
             completionHandler(exportSession)
         }
     }
-    
+
+    @available(iOS 15.0, *)
+    public func process() async -> AVAssetExportSession? {
+        await withCheckedContinuation { continuation in
+            process { exportSession in
+                continuation.resume(returning: exportSession)
+            }
+        }
+    }
+
     public func addOverlay(_ overlay: BaseOverlay) {
         overlays.append(overlay)
     }

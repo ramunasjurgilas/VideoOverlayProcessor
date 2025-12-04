@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class BaseOverlay {
+public class BaseOverlay {
     let frame: CGRect
     let delay: TimeInterval
     let duration: TimeInterval
