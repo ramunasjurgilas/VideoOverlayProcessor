@@ -27,7 +27,7 @@ public class TextOverlay: BaseOverlay {
 
     override var layer: CALayer {
         let textLayer = CATextLayer()
-        textLayer.backgroundColor = PlatformColor.blue.withAlphaComponent(0.5).cgColor
+        textLayer.backgroundColor = backgroundColor.cgColor
         textLayer.foregroundColor = textColor.cgColor
         textLayer.string = text
         textLayer.isWrapped = true
