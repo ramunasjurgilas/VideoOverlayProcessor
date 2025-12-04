@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007777852EE2310700D7C54D /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007777842EE2310700D7C54D /* Package.swift */; };
 		08D02B422369D2890092AAF1 /* VideoOverlayProcessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D02B382369D2890092AAF1 /* VideoOverlayProcessor.framework */; };
 		08D02B472369D2890092AAF1 /* VideoOverlayProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D02B462369D2890092AAF1 /* VideoOverlayProcessorTests.swift */; };
 		08D02B492369D2890092AAF1 /* VideoOverlayProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D02B3B2369D2890092AAF1 /* VideoOverlayProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007777842EE2310700D7C54D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		08D02B382369D2890092AAF1 /* VideoOverlayProcessor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VideoOverlayProcessor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D02B3B2369D2890092AAF1 /* VideoOverlayProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoOverlayProcessor.h; sourceTree = "<group>"; };
 		08D02B3C2369D2890092AAF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		08D02B2E2369D2890092AAF1 = {
 			isa = PBXGroup;
 			children = (
+				007777842EE2310700D7C54D /* Package.swift */,
 				08D02B522369D5440092AAF1 /* README.md */,
 				08D02B532369D5690092AAF1 /* LICENSE */,
 				08D02B3A2369D2890092AAF1 /* VideoOverlayProcessor */,
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D02B572369D5C00092AAF1 /* BaseOverlay.swift in Sources */,
+				007777852EE2310700D7C54D /* Package.swift in Sources */,
 				08D02B5B2369D6000092AAF1 /* ImageOverlay.swift in Sources */,
 				08D02B592369D5EC0092AAF1 /* TextOverlay.swift in Sources */,
 				08D02B5D2369D60F0092AAF1 /* VideoOverlayProcessor.swift in Sources */,
@@ -487,12 +491,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3G6PMVPLSF;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VideoOverlayProcessor/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,12 +519,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3G6PMVPLSF;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VideoOverlayProcessor/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
