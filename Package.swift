@@ -1,11 +1,3 @@
-//
-//  Package.swift
-//  VideoOverlayProcessor
-//
-//  Created by Ramunas Jurgilas on 04/12/2025.
-//  Copyright © 2025 Inspace Labs. All rights reserved.
-//
-
 // swift-tools-version: 5.9
 import PackageDescription
 
