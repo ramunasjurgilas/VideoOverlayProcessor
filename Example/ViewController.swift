@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         let videoSize = processor.videoSize
         let videoDuration = processor.videoDuration
 
-        let textOverlay = TextOverlay(text: "Hello ;) I hope you like this library", frame: CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height/12), delay: 0.0, duration: videoDuration, backgroundColor: UIColor.black.withAlphaComponent(0.3), textColor: UIColor.white)
+        let textOverlay = TextOverlay(text: "Hello ;) I hope you like this library", frame: CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height/12), delay: 0.0, duration: videoDuration, textColor: UIColor.white, glowColor: .black, glowRadius: 6)
         processor.addOverlay(textOverlay)
         
         processor.process { [weak self] (exportSession) in
